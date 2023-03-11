@@ -1,9 +1,9 @@
 import { recipes } from "../../data/recipes.js";
-import { dropdownSection, makeList } from "../factories/listFactory.js";
+import { dropdownSection, makeList } from "../factory/listFactory.js";
 import { dropdownToggle, inputOpenFuntion } from "../utils/dropdown.js";
 import { tagFn, closeTag } from "../utils/apiTags.js";
 import { removeArray } from "../utils/removeArray.js";
-import { cardFactory } from "../factories/recipeCard.js";
+import { cardFactory } from "../factory/recipeCard.js";
 
 let value = 0;
 let resultsArray = [];

@@ -1,4 +1,4 @@
-import { createTags } from "../factories/tagFactory.js";
+import { createTags } from "../factory/tagFactory.js";
 
 
 
