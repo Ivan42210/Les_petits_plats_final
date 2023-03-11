@@ -2,6 +2,8 @@
 
 La branch main est vierge, elle ne contient que le README
 
+Au sujet des branches:
+
 - branch_algorithme_for: Branch contenant l'algorithme le plus lent
 - branch_algorithme_filter: Branch contenant l'algorithme le plus rapide et donc l'algorithme choisi
 
