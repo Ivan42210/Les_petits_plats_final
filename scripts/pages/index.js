@@ -110,94 +110,79 @@ function DropdownPart(arrays) {
 
 
 function takeDatas(arrays) {
-    console.log(value)
-    let searchResult = []
 
-    if (value.length > 3) {
-        console.log(value)
-        for (let array of arrays) {
-
-            const arrayName = array.name.toLowerCase();
-
-            if (arrayName.indexOf(value) != -1) {
-
-                searchResult.push(array);
-
-            }
-        }
-    } else if (value.length < 3) {
-        searchResult = arrays;
-    }
-
-
-
-
-
-
-
+    let searchResult = [];
     parentCards.innerHTML = '';
 
-    let sum = 0
+    if (value.length >= 3) {
+        for (let array of arrays) {
+            const arrayName = array.name.toLowerCase();
+            const arrayDescription = array.description.toLowerCase();
+            if (arrayName.indexOf(value) != -1 || arrayDescription.indexOf(value) != -1) {
+                searchResult.push(array);
+            }
+        }
+
+    } else {
+        searchResult = Object.values(arrays)
+    }
+
+    let sum = 0;
     let a = 0
     let b = 0
     let c = 0
 
-    if (searchResult.length != 0 /*&& resultIngredients.length >= 0 || resultUstensils.length >= 0 || resultAppliance.length >= 0*/ ) {
-        sum = 0
-        a = 0
-        b = 0
-        c = 0
+    for (let result of searchResult) {
+        const resIngredients = result.ingredients.map((el) => el.ingredient.toLowerCase().trim());
+        const resAppliance = result.appliance.toLowerCase();
+        const resUtensils = result.ustensils.map((el) => el).flat();
 
-        for (let result of searchResult) {
-            const resIngredients = result.ingredients.map((el) => el.ingredient.toLowerCase().trim());
-            const resAppliance = result.appliance.toLowerCase();
-            const resUtensils = result.ustensils.map((el) => el).flat();
+        for (let ing of resultIngredients) {
+            if (resIngredients.includes(ing)) {
+                a = 1
+            } else {
+                a = -4;
 
-
-
-            for (let ing of resultIngredients) {
-
-                if (resIngredients.includes(ing)) {
-                    a = 1
-                } else {
-                    a = -4;
-                }
-                console.log(a)
             }
-            for (let app of resultAppliance) {
-                if (resAppliance.includes(app)) {
-                    b = 1
-                } else {
-                    b = -4;
-                }
+        }
+
+        for (let app of resultAppliance) {
+            if (resAppliance.includes(app)) {
+                b = 1
+            } else {
+                b = -4;
             }
+        }
 
-            for (let ust of resultUstensils) {
-                if (resUtensils.includes(ust)) {
-                    c = 1
-                } else {
-                    c = -4
-                }
-                console.log(c)
+        for (let ust of resultUstensils) {
+            if (resUtensils.includes(ust)) {
+                c = 1
+            } else {
+                c = -4;
             }
-
-
-
-            sum = a + b + c;
-
-            if (sum >= 0) {
-                resultsArray = [];
-                resultsArray.push(result);
-                setCardFirst(resultsArray)
-            }
-
 
         }
 
+
+        sum = a + b + c;
+
+        console.log(result.name, sum)
+
+
+        if (sum >= 0) {
+            resultsArray = [];
+            resultsArray.push(result);
+            setCardFirst(resultsArray)
+        }
+
+
     }
+
+
+
+
 }
-// console.log('test de récupération général');
-//console.log(resultIngredients)
+
 
 
 
