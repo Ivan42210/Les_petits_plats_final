@@ -124,10 +124,20 @@ function takeDatas(arrays) {
 
         function filterSearchBar(datas, comp) {
 
-            const search = datas.filter(function(arr) { return arr.name.toLowerCase().indexOf(comp.toLowerCase()) != -1; })
+            const search = datas.filter(function(arr) {
+                return doubleCheck(arr)
+            })
             resultsArray = Object.values(search)
 
+            function doubleCheck(array) {
+                if (array.name.toLowerCase().indexOf(comp.toLowerCase()) != -1 || array.description.toLowerCase().indexOf(comp.toLowerCase()) != -1) {
+                    return array
+                }
+
+            }
         }
+
+
 
         filterSearchBar(arrays, value)
 
