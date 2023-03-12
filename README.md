@@ -10,7 +10,7 @@ Au sujet des branches:
 ! Attention ! Bien s'assurer d'avoir Visual Studio Code et l'extension Live server d'installée.
 
 Instructions: 
-- Cloner le repo ou le télécharger en zip via le bouton code.
+- Cloner le repo ou télécharger la branche qui vous intéresse en zip via le bouton code.
 - Lancer le dossier dans Visual Studio Code
 - Choisir la branch 
 - Faire un clic droit pour lancer le fichier HTML et l'ouvrir via le Live server
